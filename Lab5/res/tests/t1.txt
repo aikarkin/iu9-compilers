@@ -1,0 +1,5 @@
+set x1 123456 		     (	asd
+ sdfsdf)		
+set set534de 	(sdfgtr ghj adsaf gha asdf авп  фалп sdfhgjsdhfg)
+unset set1
+  uns ()  ) aaa

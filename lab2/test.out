@@ -1,0 +1,488 @@
+     0  *ast.File {
+     1  .  Doc: nil
+     2  .  Package: /home/alex/dev/go/compilers/src/lab2/test/test.go:1:1
+     3  .  Name: *ast.Ident {
+     4  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:1:9
+     5  .  .  Name: "test"
+     6  .  .  Obj: nil
+     7  .  }
+     8  .  Decls: []ast.Decl (len = 2) {
+     9  .  .  0: *ast.GenDecl {
+    10  .  .  .  Doc: nil
+    11  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:3:1
+    12  .  .  .  Tok: import
+    13  .  .  .  Lparen: -
+    14  .  .  .  Specs: []ast.Spec (len = 1) {
+    15  .  .  .  .  0: *ast.ImportSpec {
+    16  .  .  .  .  .  Doc: nil
+    17  .  .  .  .  .  Name: nil
+    18  .  .  .  .  .  Path: *ast.BasicLit {
+    19  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:3:8
+    20  .  .  .  .  .  .  Kind: STRING
+    21  .  .  .  .  .  .  Value: "\"fmt\""
+    22  .  .  .  .  .  }
+    23  .  .  .  .  .  Comment: nil
+    24  .  .  .  .  .  EndPos: -
+    25  .  .  .  .  }
+    26  .  .  .  }
+    27  .  .  .  Rparen: -
+    28  .  .  }
+    29  .  .  1: *ast.FuncDecl {
+    30  .  .  .  Doc: nil
+    31  .  .  .  Recv: nil
+    32  .  .  .  Name: *ast.Ident {
+    33  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:5:6
+    34  .  .  .  .  Name: "main"
+    35  .  .  .  .  Obj: *ast.Object {
+    36  .  .  .  .  .  Kind: func
+    37  .  .  .  .  .  Name: "main"
+    38  .  .  .  .  .  Decl: *(obj @ 29)
+    39  .  .  .  .  .  Data: nil
+    40  .  .  .  .  .  Type: nil
+    41  .  .  .  .  }
+    42  .  .  .  }
+    43  .  .  .  Type: *ast.FuncType {
+    44  .  .  .  .  Func: /home/alex/dev/go/compilers/src/lab2/test/test.go:5:1
+    45  .  .  .  .  Params: *ast.FieldList {
+    46  .  .  .  .  .  Opening: /home/alex/dev/go/compilers/src/lab2/test/test.go:5:10
+    47  .  .  .  .  .  List: nil
+    48  .  .  .  .  .  Closing: /home/alex/dev/go/compilers/src/lab2/test/test.go:5:11
+    49  .  .  .  .  }
+    50  .  .  .  .  Results: nil
+    51  .  .  .  }
+    52  .  .  .  Body: *ast.BlockStmt {
+    53  .  .  .  .  Lbrace: /home/alex/dev/go/compilers/src/lab2/test/test.go:5:13
+    54  .  .  .  .  List: []ast.Stmt (len = 6) {
+    55  .  .  .  .  .  0: *ast.DeclStmt {
+    56  .  .  .  .  .  .  Decl: *ast.GenDecl {
+    57  .  .  .  .  .  .  .  Doc: nil
+    58  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:6:2
+    59  .  .  .  .  .  .  .  Tok: var
+    60  .  .  .  .  .  .  .  Lparen: -
+    61  .  .  .  .  .  .  .  Specs: []ast.Spec (len = 1) {
+    62  .  .  .  .  .  .  .  .  0: *ast.ValueSpec {
+    63  .  .  .  .  .  .  .  .  .  Doc: nil
+    64  .  .  .  .  .  .  .  .  .  Names: []*ast.Ident (len = 1) {
+    65  .  .  .  .  .  .  .  .  .  .  0: *ast.Ident {
+    66  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:6:6
+    67  .  .  .  .  .  .  .  .  .  .  .  Name: "__counter_1"
+    68  .  .  .  .  .  .  .  .  .  .  .  Obj: *ast.Object {
+    69  .  .  .  .  .  .  .  .  .  .  .  .  Kind: var
+    70  .  .  .  .  .  .  .  .  .  .  .  .  Name: "__counter_1"
+    71  .  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 62)
+    72  .  .  .  .  .  .  .  .  .  .  .  .  Data: 0
+    73  .  .  .  .  .  .  .  .  .  .  .  .  Type: nil
+    74  .  .  .  .  .  .  .  .  .  .  .  }
+    75  .  .  .  .  .  .  .  .  .  .  }
+    76  .  .  .  .  .  .  .  .  .  }
+    77  .  .  .  .  .  .  .  .  .  Type: *ast.Ident {
+    78  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:6:18
+    79  .  .  .  .  .  .  .  .  .  .  Name: "int"
+    80  .  .  .  .  .  .  .  .  .  .  Obj: nil
+    81  .  .  .  .  .  .  .  .  .  }
+    82  .  .  .  .  .  .  .  .  .  Values: []ast.Expr (len = 1) {
+    83  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+    84  .  .  .  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:6:24
+    85  .  .  .  .  .  .  .  .  .  .  .  Kind: INT
+    86  .  .  .  .  .  .  .  .  .  .  .  Value: "0"
+    87  .  .  .  .  .  .  .  .  .  .  }
+    88  .  .  .  .  .  .  .  .  .  }
+    89  .  .  .  .  .  .  .  .  .  Comment: nil
+    90  .  .  .  .  .  .  .  .  }
+    91  .  .  .  .  .  .  .  }
+    92  .  .  .  .  .  .  .  Rparen: -
+    93  .  .  .  .  .  .  }
+    94  .  .  .  .  .  }
+    95  .  .  .  .  .  1: *ast.AssignStmt {
+    96  .  .  .  .  .  .  Lhs: []ast.Expr (len = 1) {
+    97  .  .  .  .  .  .  .  0: *ast.Ident {
+    98  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:8:2
+    99  .  .  .  .  .  .  .  .  Name: "x"
+   100  .  .  .  .  .  .  .  .  Obj: *ast.Object {
+   101  .  .  .  .  .  .  .  .  .  Kind: var
+   102  .  .  .  .  .  .  .  .  .  Name: "x"
+   103  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 95)
+   104  .  .  .  .  .  .  .  .  .  Data: nil
+   105  .  .  .  .  .  .  .  .  .  Type: nil
+   106  .  .  .  .  .  .  .  .  }
+   107  .  .  .  .  .  .  .  }
+   108  .  .  .  .  .  .  }
+   109  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:8:4
+   110  .  .  .  .  .  .  Tok: :=
+   111  .  .  .  .  .  .  Rhs: []ast.Expr (len = 1) {
+   112  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   113  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:8:7
+   114  .  .  .  .  .  .  .  .  Kind: INT
+   115  .  .  .  .  .  .  .  .  Value: "7"
+   116  .  .  .  .  .  .  .  }
+   117  .  .  .  .  .  .  }
+   118  .  .  .  .  .  }
+   119  .  .  .  .  .  2: *ast.ExprStmt {
+   120  .  .  .  .  .  .  X: *ast.CallExpr {
+   121  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   122  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   123  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:10:2
+   124  .  .  .  .  .  .  .  .  .  Name: "fmt"
+   125  .  .  .  .  .  .  .  .  .  Obj: nil
+   126  .  .  .  .  .  .  .  .  }
+   127  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   128  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:10:6
+   129  .  .  .  .  .  .  .  .  .  Name: "Printf"
+   130  .  .  .  .  .  .  .  .  .  Obj: nil
+   131  .  .  .  .  .  .  .  .  }
+   132  .  .  .  .  .  .  .  }
+   133  .  .  .  .  .  .  .  Lparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:10:12
+   134  .  .  .  .  .  .  .  Args: []ast.Expr (len = 2) {
+   135  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   136  .  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:10:13
+   137  .  .  .  .  .  .  .  .  .  Kind: STRING
+   138  .  .  .  .  .  .  .  .  .  Value: "\"x=%d\\n\""
+   139  .  .  .  .  .  .  .  .  }
+   140  .  .  .  .  .  .  .  .  1: *ast.Ident {
+   141  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:10:23
+   142  .  .  .  .  .  .  .  .  .  Name: "x"
+   143  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 100)
+   144  .  .  .  .  .  .  .  .  }
+   145  .  .  .  .  .  .  .  }
+   146  .  .  .  .  .  .  .  Ellipsis: -
+   147  .  .  .  .  .  .  .  Rparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:10:24
+   148  .  .  .  .  .  .  }
+   149  .  .  .  .  .  }
+   150  .  .  .  .  .  3: *ast.ForStmt {
+   151  .  .  .  .  .  .  For: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:2
+   152  .  .  .  .  .  .  Init: *ast.AssignStmt {
+   153  .  .  .  .  .  .  .  Lhs: []ast.Expr (len = 1) {
+   154  .  .  .  .  .  .  .  .  0: *ast.Ident {
+   155  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:6
+   156  .  .  .  .  .  .  .  .  .  Name: "i"
+   157  .  .  .  .  .  .  .  .  .  Obj: *ast.Object {
+   158  .  .  .  .  .  .  .  .  .  .  Kind: var
+   159  .  .  .  .  .  .  .  .  .  .  Name: "i"
+   160  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 152)
+   161  .  .  .  .  .  .  .  .  .  .  Data: nil
+   162  .  .  .  .  .  .  .  .  .  .  Type: nil
+   163  .  .  .  .  .  .  .  .  .  }
+   164  .  .  .  .  .  .  .  .  }
+   165  .  .  .  .  .  .  .  }
+   166  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:8
+   167  .  .  .  .  .  .  .  Tok: :=
+   168  .  .  .  .  .  .  .  Rhs: []ast.Expr (len = 1) {
+   169  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   170  .  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:11
+   171  .  .  .  .  .  .  .  .  .  Kind: INT
+   172  .  .  .  .  .  .  .  .  .  Value: "0"
+   173  .  .  .  .  .  .  .  .  }
+   174  .  .  .  .  .  .  .  }
+   175  .  .  .  .  .  .  }
+   176  .  .  .  .  .  .  Cond: *ast.BinaryExpr {
+   177  .  .  .  .  .  .  .  X: *ast.Ident {
+   178  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:14
+   179  .  .  .  .  .  .  .  .  Name: "i"
+   180  .  .  .  .  .  .  .  .  Obj: *(obj @ 157)
+   181  .  .  .  .  .  .  .  }
+   182  .  .  .  .  .  .  .  OpPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:16
+   183  .  .  .  .  .  .  .  Op: <
+   184  .  .  .  .  .  .  .  Y: *ast.BasicLit {
+   185  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:18
+   186  .  .  .  .  .  .  .  .  Kind: INT
+   187  .  .  .  .  .  .  .  .  Value: "10"
+   188  .  .  .  .  .  .  .  }
+   189  .  .  .  .  .  .  }
+   190  .  .  .  .  .  .  Post: *ast.IncDecStmt {
+   191  .  .  .  .  .  .  .  X: *ast.Ident {
+   192  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:22
+   193  .  .  .  .  .  .  .  .  Name: "i"
+   194  .  .  .  .  .  .  .  .  Obj: *(obj @ 157)
+   195  .  .  .  .  .  .  .  }
+   196  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:23
+   197  .  .  .  .  .  .  .  Tok: ++
+   198  .  .  .  .  .  .  }
+   199  .  .  .  .  .  .  Body: *ast.BlockStmt {
+   200  .  .  .  .  .  .  .  Lbrace: /home/alex/dev/go/compilers/src/lab2/test/test.go:12:26
+   201  .  .  .  .  .  .  .  List: []ast.Stmt (len = 3) {
+   202  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   203  .  .  .  .  .  .  .  .  .  X: *ast.CallExpr {
+   204  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   205  .  .  .  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   206  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:13:3
+   207  .  .  .  .  .  .  .  .  .  .  .  .  Name: "fmt"
+   208  .  .  .  .  .  .  .  .  .  .  .  .  Obj: nil
+   209  .  .  .  .  .  .  .  .  .  .  .  }
+   210  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   211  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:13:7
+   212  .  .  .  .  .  .  .  .  .  .  .  .  Name: "Printf"
+   213  .  .  .  .  .  .  .  .  .  .  .  .  Obj: nil
+   214  .  .  .  .  .  .  .  .  .  .  .  }
+   215  .  .  .  .  .  .  .  .  .  .  }
+   216  .  .  .  .  .  .  .  .  .  .  Lparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:13:13
+   217  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 2) {
+   218  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   219  .  .  .  .  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:13:14
+   220  .  .  .  .  .  .  .  .  .  .  .  .  Kind: STRING
+   221  .  .  .  .  .  .  .  .  .  .  .  .  Value: "\"i=%d\""
+   222  .  .  .  .  .  .  .  .  .  .  .  }
+   223  .  .  .  .  .  .  .  .  .  .  .  1: *ast.Ident {
+   224  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:13:22
+   225  .  .  .  .  .  .  .  .  .  .  .  .  Name: "i"
+   226  .  .  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 157)
+   227  .  .  .  .  .  .  .  .  .  .  .  }
+   228  .  .  .  .  .  .  .  .  .  .  }
+   229  .  .  .  .  .  .  .  .  .  .  Ellipsis: -
+   230  .  .  .  .  .  .  .  .  .  .  Rparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:13:23
+   231  .  .  .  .  .  .  .  .  .  }
+   232  .  .  .  .  .  .  .  .  }
+   233  .  .  .  .  .  .  .  .  1: *ast.IncDecStmt {
+   234  .  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   235  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:14:3
+   236  .  .  .  .  .  .  .  .  .  .  Name: "__counter_1"
+   237  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 68)
+   238  .  .  .  .  .  .  .  .  .  }
+   239  .  .  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:14:14
+   240  .  .  .  .  .  .  .  .  .  Tok: ++
+   241  .  .  .  .  .  .  .  .  }
+   242  .  .  .  .  .  .  .  .  2: *ast.ForStmt {
+   243  .  .  .  .  .  .  .  .  .  For: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:3
+   244  .  .  .  .  .  .  .  .  .  Init: *ast.AssignStmt {
+   245  .  .  .  .  .  .  .  .  .  .  Lhs: []ast.Expr (len = 1) {
+   246  .  .  .  .  .  .  .  .  .  .  .  0: *ast.Ident {
+   247  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:7
+   248  .  .  .  .  .  .  .  .  .  .  .  .  Name: "j"
+   249  .  .  .  .  .  .  .  .  .  .  .  .  Obj: *ast.Object {
+   250  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: var
+   251  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "j"
+   252  .  .  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 244)
+   253  .  .  .  .  .  .  .  .  .  .  .  .  .  Data: nil
+   254  .  .  .  .  .  .  .  .  .  .  .  .  .  Type: nil
+   255  .  .  .  .  .  .  .  .  .  .  .  .  }
+   256  .  .  .  .  .  .  .  .  .  .  .  }
+   257  .  .  .  .  .  .  .  .  .  .  }
+   258  .  .  .  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:9
+   259  .  .  .  .  .  .  .  .  .  .  Tok: :=
+   260  .  .  .  .  .  .  .  .  .  .  Rhs: []ast.Expr (len = 1) {
+   261  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   262  .  .  .  .  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:12
+   263  .  .  .  .  .  .  .  .  .  .  .  .  Kind: INT
+   264  .  .  .  .  .  .  .  .  .  .  .  .  Value: "0"
+   265  .  .  .  .  .  .  .  .  .  .  .  }
+   266  .  .  .  .  .  .  .  .  .  .  }
+   267  .  .  .  .  .  .  .  .  .  }
+   268  .  .  .  .  .  .  .  .  .  Cond: *ast.BinaryExpr {
+   269  .  .  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   270  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:15
+   271  .  .  .  .  .  .  .  .  .  .  .  Name: "j"
+   272  .  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 249)
+   273  .  .  .  .  .  .  .  .  .  .  }
+   274  .  .  .  .  .  .  .  .  .  .  OpPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:17
+   275  .  .  .  .  .  .  .  .  .  .  Op: <
+   276  .  .  .  .  .  .  .  .  .  .  Y: *ast.BasicLit {
+   277  .  .  .  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:19
+   278  .  .  .  .  .  .  .  .  .  .  .  Kind: INT
+   279  .  .  .  .  .  .  .  .  .  .  .  Value: "10"
+   280  .  .  .  .  .  .  .  .  .  .  }
+   281  .  .  .  .  .  .  .  .  .  }
+   282  .  .  .  .  .  .  .  .  .  Post: *ast.IncDecStmt {
+   283  .  .  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   284  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:23
+   285  .  .  .  .  .  .  .  .  .  .  .  Name: "j"
+   286  .  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 249)
+   287  .  .  .  .  .  .  .  .  .  .  }
+   288  .  .  .  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:24
+   289  .  .  .  .  .  .  .  .  .  .  Tok: ++
+   290  .  .  .  .  .  .  .  .  .  }
+   291  .  .  .  .  .  .  .  .  .  Body: *ast.BlockStmt {
+   292  .  .  .  .  .  .  .  .  .  .  Lbrace: /home/alex/dev/go/compilers/src/lab2/test/test.go:15:27
+   293  .  .  .  .  .  .  .  .  .  .  List: []ast.Stmt (len = 2) {
+   294  .  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   295  .  .  .  .  .  .  .  .  .  .  .  .  X: *ast.CallExpr {
+   296  .  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   297  .  .  .  .  .  .  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   298  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:16:4
+   299  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "fmt"
+   300  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Obj: nil
+   301  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   302  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   303  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:16:8
+   304  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "Printf"
+   305  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Obj: nil
+   306  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   307  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   308  .  .  .  .  .  .  .  .  .  .  .  .  .  Lparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:16:14
+   309  .  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 2) {
+   310  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   311  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:16:15
+   312  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: STRING
+   313  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "\"i=%d\""
+   314  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   315  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1: *ast.Ident {
+   316  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:16:23
+   317  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "i"
+   318  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 157)
+   319  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   320  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   321  .  .  .  .  .  .  .  .  .  .  .  .  .  Ellipsis: -
+   322  .  .  .  .  .  .  .  .  .  .  .  .  .  Rparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:16:24
+   323  .  .  .  .  .  .  .  .  .  .  .  .  }
+   324  .  .  .  .  .  .  .  .  .  .  .  }
+   325  .  .  .  .  .  .  .  .  .  .  .  1: *ast.IncDecStmt {
+   326  .  .  .  .  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   327  .  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:17:4
+   328  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "__counter_1"
+   329  .  .  .  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 68)
+   330  .  .  .  .  .  .  .  .  .  .  .  .  }
+   331  .  .  .  .  .  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:17:15
+   332  .  .  .  .  .  .  .  .  .  .  .  .  Tok: ++
+   333  .  .  .  .  .  .  .  .  .  .  .  }
+   334  .  .  .  .  .  .  .  .  .  .  }
+   335  .  .  .  .  .  .  .  .  .  .  Rbrace: /home/alex/dev/go/compilers/src/lab2/test/test.go:18:3
+   336  .  .  .  .  .  .  .  .  .  }
+   337  .  .  .  .  .  .  .  .  }
+   338  .  .  .  .  .  .  .  }
+   339  .  .  .  .  .  .  .  Rbrace: /home/alex/dev/go/compilers/src/lab2/test/test.go:19:2
+   340  .  .  .  .  .  .  }
+   341  .  .  .  .  .  }
+   342  .  .  .  .  .  4: *ast.ForStmt {
+   343  .  .  .  .  .  .  For: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:2
+   344  .  .  .  .  .  .  Init: *ast.AssignStmt {
+   345  .  .  .  .  .  .  .  Lhs: []ast.Expr (len = 1) {
+   346  .  .  .  .  .  .  .  .  0: *ast.Ident {
+   347  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:6
+   348  .  .  .  .  .  .  .  .  .  Name: "i"
+   349  .  .  .  .  .  .  .  .  .  Obj: *ast.Object {
+   350  .  .  .  .  .  .  .  .  .  .  Kind: var
+   351  .  .  .  .  .  .  .  .  .  .  Name: "i"
+   352  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 344)
+   353  .  .  .  .  .  .  .  .  .  .  Data: nil
+   354  .  .  .  .  .  .  .  .  .  .  Type: nil
+   355  .  .  .  .  .  .  .  .  .  }
+   356  .  .  .  .  .  .  .  .  }
+   357  .  .  .  .  .  .  .  }
+   358  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:8
+   359  .  .  .  .  .  .  .  Tok: :=
+   360  .  .  .  .  .  .  .  Rhs: []ast.Expr (len = 1) {
+   361  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   362  .  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:11
+   363  .  .  .  .  .  .  .  .  .  Kind: INT
+   364  .  .  .  .  .  .  .  .  .  Value: "0"
+   365  .  .  .  .  .  .  .  .  }
+   366  .  .  .  .  .  .  .  }
+   367  .  .  .  .  .  .  }
+   368  .  .  .  .  .  .  Cond: *ast.BinaryExpr {
+   369  .  .  .  .  .  .  .  X: *ast.Ident {
+   370  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:14
+   371  .  .  .  .  .  .  .  .  Name: "i"
+   372  .  .  .  .  .  .  .  .  Obj: *(obj @ 349)
+   373  .  .  .  .  .  .  .  }
+   374  .  .  .  .  .  .  .  OpPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:16
+   375  .  .  .  .  .  .  .  Op: <
+   376  .  .  .  .  .  .  .  Y: *ast.BasicLit {
+   377  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:18
+   378  .  .  .  .  .  .  .  .  Kind: INT
+   379  .  .  .  .  .  .  .  .  Value: "10"
+   380  .  .  .  .  .  .  .  }
+   381  .  .  .  .  .  .  }
+   382  .  .  .  .  .  .  Post: *ast.IncDecStmt {
+   383  .  .  .  .  .  .  .  X: *ast.Ident {
+   384  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:22
+   385  .  .  .  .  .  .  .  .  Name: "i"
+   386  .  .  .  .  .  .  .  .  Obj: *(obj @ 349)
+   387  .  .  .  .  .  .  .  }
+   388  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:23
+   389  .  .  .  .  .  .  .  Tok: ++
+   390  .  .  .  .  .  .  }
+   391  .  .  .  .  .  .  Body: *ast.BlockStmt {
+   392  .  .  .  .  .  .  .  Lbrace: /home/alex/dev/go/compilers/src/lab2/test/test.go:21:26
+   393  .  .  .  .  .  .  .  List: []ast.Stmt (len = 2) {
+   394  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   395  .  .  .  .  .  .  .  .  .  X: *ast.CallExpr {
+   396  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   397  .  .  .  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   398  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:22:3
+   399  .  .  .  .  .  .  .  .  .  .  .  .  Name: "fmt"
+   400  .  .  .  .  .  .  .  .  .  .  .  .  Obj: nil
+   401  .  .  .  .  .  .  .  .  .  .  .  }
+   402  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   403  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:22:7
+   404  .  .  .  .  .  .  .  .  .  .  .  .  Name: "Printf"
+   405  .  .  .  .  .  .  .  .  .  .  .  .  Obj: nil
+   406  .  .  .  .  .  .  .  .  .  .  .  }
+   407  .  .  .  .  .  .  .  .  .  .  }
+   408  .  .  .  .  .  .  .  .  .  .  Lparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:22:13
+   409  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 2) {
+   410  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   411  .  .  .  .  .  .  .  .  .  .  .  .  ValuePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:22:14
+   412  .  .  .  .  .  .  .  .  .  .  .  .  Kind: STRING
+   413  .  .  .  .  .  .  .  .  .  .  .  .  Value: "\"i=%d\""
+   414  .  .  .  .  .  .  .  .  .  .  .  }
+   415  .  .  .  .  .  .  .  .  .  .  .  1: *ast.Ident {
+   416  .  .  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:22:22
+   417  .  .  .  .  .  .  .  .  .  .  .  .  Name: "i"
+   418  .  .  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 349)
+   419  .  .  .  .  .  .  .  .  .  .  .  }
+   420  .  .  .  .  .  .  .  .  .  .  }
+   421  .  .  .  .  .  .  .  .  .  .  Ellipsis: -
+   422  .  .  .  .  .  .  .  .  .  .  Rparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:22:23
+   423  .  .  .  .  .  .  .  .  .  }
+   424  .  .  .  .  .  .  .  .  }
+   425  .  .  .  .  .  .  .  .  1: *ast.IncDecStmt {
+   426  .  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   427  .  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:23:3
+   428  .  .  .  .  .  .  .  .  .  .  Name: "__counter_1"
+   429  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 68)
+   430  .  .  .  .  .  .  .  .  .  }
+   431  .  .  .  .  .  .  .  .  .  TokPos: /home/alex/dev/go/compilers/src/lab2/test/test.go:23:14
+   432  .  .  .  .  .  .  .  .  .  Tok: ++
+   433  .  .  .  .  .  .  .  .  }
+   434  .  .  .  .  .  .  .  }
+   435  .  .  .  .  .  .  .  Rbrace: /home/alex/dev/go/compilers/src/lab2/test/test.go:24:2
+   436  .  .  .  .  .  .  }
+   437  .  .  .  .  .  }
+   438  .  .  .  .  .  5: *ast.ExprStmt {
+   439  .  .  .  .  .  .  X: *ast.CallExpr {
+   440  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   441  .  .  .  .  .  .  .  .  X: *ast.Ident {
+   442  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:26:2
+   443  .  .  .  .  .  .  .  .  .  Name: "fmt"
+   444  .  .  .  .  .  .  .  .  .  Obj: nil
+   445  .  .  .  .  .  .  .  .  }
+   446  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   447  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:26:6
+   448  .  .  .  .  .  .  .  .  .  Name: "Println"
+   449  .  .  .  .  .  .  .  .  .  Obj: nil
+   450  .  .  .  .  .  .  .  .  }
+   451  .  .  .  .  .  .  .  }
+   452  .  .  .  .  .  .  .  Lparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:26:13
+   453  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
+   454  .  .  .  .  .  .  .  .  0: *ast.Ident {
+   455  .  .  .  .  .  .  .  .  .  NamePos: /home/alex/dev/go/compilers/src/lab2/test/test.go:26:14
+   456  .  .  .  .  .  .  .  .  .  Name: "__counter_1"
+   457  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 68)
+   458  .  .  .  .  .  .  .  .  }
+   459  .  .  .  .  .  .  .  }
+   460  .  .  .  .  .  .  .  Ellipsis: -
+   461  .  .  .  .  .  .  .  Rparen: /home/alex/dev/go/compilers/src/lab2/test/test.go:26:25
+   462  .  .  .  .  .  .  }
+   463  .  .  .  .  .  }
+   464  .  .  .  .  }
+   465  .  .  .  .  Rbrace: /home/alex/dev/go/compilers/src/lab2/test/test.go:27:1
+   466  .  .  .  }
+   467  .  .  }
+   468  .  }
+   469  .  Scope: *ast.Scope {
+   470  .  .  Outer: nil
+   471  .  .  Objects: map[string]*ast.Object (len = 1) {
+   472  .  .  .  "main": *(obj @ 35)
+   473  .  .  }
+   474  .  }
+   475  .  Imports: []*ast.ImportSpec (len = 1) {
+   476  .  .  0: *(obj @ 15)
+   477  .  }
+   478  .  Unresolved: []*ast.Ident (len = 6) {
+   479  .  .  0: *(obj @ 77)
+   480  .  .  1: *(obj @ 122)
+   481  .  .  2: *(obj @ 205)
+   482  .  .  3: *(obj @ 297)
+   483  .  .  4: *(obj @ 397)
+   484  .  .  5: *(obj @ 441)
+   485  .  }
+   486  .  Comments: nil
+   487  }

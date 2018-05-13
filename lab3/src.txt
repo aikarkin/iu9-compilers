@@ -1,0 +1,6 @@
+123 rrr "string{ sdfsdf "" inner string "" sdfsdf """" sdfsdf \
+ ""sdfgsdfgs dfg"" sdfgsdfgsdfg sdfgsdfgsdf \
+ sdfgsdfgsdfg \
+ sdfgsdfgsdfg \
+  \
+ }" 1.4 $a5 "" "a" x6 перем1 привет4раза www "string{ 1 fsdfsdf }" "string{ dsfsdfds }"
