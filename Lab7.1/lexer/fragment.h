@@ -13,10 +13,21 @@ struct Fragment {
     Position begin;
     Position follow;
 
-    std::string toString() {
-        std::stringstream ss;
-        ss << begin.toString() << '-' << follow.toString();
-        return ss.str();
+    Fragment() {
+
+    }
+
+    Fragment(const Fragment &other) {
+        this->begin = Position(other.begin);
+        this->follow = Position(other.follow);
+    }
+
+    std::string str() {
+        return begin.str() + "-" + follow.str();
+    }
+
+    std::string token() {
+        return follow.src.substr(begin.offset, follow.offset - begin.offset);
     }
 };
 

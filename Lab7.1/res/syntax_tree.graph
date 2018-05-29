@@ -1,93 +1,313 @@
 graph syntax_tree {
-	0[label= E];
+	0[label= "S"];
 	0 -- 1;
 	0 -- 2;
-	1[label= T];
+	1[label= "A"];
 	1 -- 3;
 	1 -- 4;
-	2[label= E1];
-	2 -- 5;
-	3[label= F];
-	3 -- 6;
-	3 -- 7;
-	3 -- 8;
-	4[label= T1];
-	4 -- 9;
-	4 -- 10;
-	4 -- 11;
-	5[label= "ε"];
-	6[label= "(", shape=doublecircle];
-	7[label= E];
-	7 -- 12;
-	7 -- 13;
-	8[label= ")", shape=doublecircle];
-	9[label= "*", shape=doublecircle];
-	10[label= F];
-	10 -- 14;
-	10 -- 15;
-	10 -- 16;
-	11[label= T1];
-	11 -- 17;
-	12[label= T];
-	12 -- 18;
-	12 -- 19;
-	13[label= E1];
-	13 -- 20;
-	14[label= "(", shape=doublecircle];
-	15[label= E];
-	15 -- 21;
-	15 -- 22;
-	16[label= ")", shape=doublecircle];
-	17[label= "ε"];
-	18[label= F];
-	18 -- 23;
-	18 -- 24;
-	18 -- 25;
-	19[label= T1];
-	19 -- 26;
-	20[label= "ε"];
-	21[label= T];
-	21 -- 27;
-	21 -- 28;
-	22[label= E1];
-	22 -- 29;
-	22 -- 30;
-	22 -- 31;
-	23[label= "(", shape=doublecircle];
-	24[label= E];
-	24 -- 32;
-	24 -- 33;
-	25[label= ")", shape=doublecircle];
-	26[label= "ε"];
-	27[label= F];
-	27 -- 34;
-	28[label= T1];
-	28 -- 35;
-	29[label= "+", shape=doublecircle];
-	30[label= T];
-	30 -- 36;
-	30 -- 37;
-	31[label= E1];
-	31 -- 38;
-	32[label= T];
-	32 -- 39;
-	32 -- 40;
-	33[label= E1];
-	33 -- 41;
-	34[label= "n", shape=doublecircle];
-	35[label= "ε"];
-	36[label= F];
-	36 -- 42;
-	37[label= T1];
-	37 -- 43;
-	38[label= "ε"];
-	39[label= F];
-	39 -- 44;
-	40[label= T1];
-	40 -- 45;
-	41[label= "ε"];
-	42[label= "n", shape=doublecircle];
-	43[label= "ε"];
-	44[label= "n", shape=doublecircle];
-	45[label= "ε"];
+	1 -- 5;
+	1 -- 6;
+	2[label= "B"];
+	2 -- 7;
+	2 -- 8;
+	2 -- 9;
+	2 -- 10;
+	3[label= "'{'
+(1,1)-(1,2)", shape=doublecircle];
+	4[label= "'E'
+(1,3)-(1,4)", shape=doublecircle];
+	5[label= "'}'
+(1,5)-(1,6)", shape=doublecircle];
+	6[label= "C"];
+	6 -- 11;
+	6 -- 12;
+	6 -- 13;
+	7[label= "'['
+(2,1)-(2,2)", shape=doublecircle];
+	8[label= "D"];
+	8 -- 14;
+	8 -- 15;
+	8 -- 16;
+	8 -- 17;
+	9[label= "']'
+(2,13)-(2,14)", shape=doublecircle];
+	10[label= "B"];
+	10 -- 18;
+	10 -- 19;
+	10 -- 20;
+	10 -- 21;
+	11[label= "','
+(1,6)-(1,7)", shape=doublecircle];
+	12[label= "'E''
+(1,8)-(1,10)", shape=doublecircle];
+	13[label= "C"];
+	13 -- 22;
+	13 -- 23;
+	13 -- 24;
+	14[label= "'E'
+(2,3)-(2,4)", shape=doublecircle];
+	15[label= "':'
+(2,6)-(2,7)", shape=doublecircle];
+	16[label= "F"];
+	16 -- 25;
+	16 -- 26;
+	17[label= "E"];
+	17 -- 27;
+	18[label= "'['
+(3,1)-(3,2)", shape=doublecircle];
+	19[label= "D"];
+	19 -- 28;
+	19 -- 29;
+	19 -- 30;
+	19 -- 31;
+	20[label= "']'
+(3,21)-(3,22)", shape=doublecircle];
+	21[label= "B"];
+	21 -- 32;
+	21 -- 33;
+	21 -- 34;
+	21 -- 35;
+	22[label= "','
+(1,11)-(1,12)", shape=doublecircle];
+	23[label= "'T'
+(1,13)-(1,14)", shape=doublecircle];
+	24[label= "C"];
+	24 -- 36;
+	24 -- 37;
+	24 -- 38;
+	25[label= "G"];
+	25 -- 39;
+	26[label= "F1"];
+	26 -- 40;
+	26 -- 41;
+	27[label= "ε"];
+	28[label= "'E''
+(3,3)-(3,5)", shape=doublecircle];
+	29[label= "':'
+(3,6)-(3,7)", shape=doublecircle];
+	30[label= "F"];
+	30 -- 42;
+	30 -- 43;
+	31[label= "E"];
+	31 -- 44;
+	31 -- 45;
+	31 -- 46;
+	32[label= "'['
+(4,1)-(4,2)", shape=doublecircle];
+	33[label= "D"];
+	33 -- 47;
+	33 -- 48;
+	33 -- 49;
+	33 -- 50;
+	34[label= "']'
+(4,13)-(4,14)", shape=doublecircle];
+	35[label= "B"];
+	35 -- 51;
+	35 -- 52;
+	35 -- 53;
+	35 -- 54;
+	36[label= "','
+(1,15)-(1,16)", shape=doublecircle];
+	37[label= "'T''
+(1,17)-(1,19)", shape=doublecircle];
+	38[label= "C"];
+	38 -- 55;
+	38 -- 56;
+	38 -- 57;
+	39[label= "'T'
+(2,8)-(2,9)", shape=doublecircle];
+	40[label= "G"];
+	40 -- 58;
+	41[label= "F1"];
+	41 -- 59;
+	42[label= "G"];
+	42 -- 60;
+	43[label= "F1"];
+	43 -- 61;
+	43 -- 62;
+	44[label= "':'
+(3,17)-(3,18)", shape=doublecircle];
+	45[label= "F"];
+	45 -- 63;
+	45 -- 64;
+	46[label= "E"];
+	46 -- 65;
+	47[label= "'T'
+(4,3)-(4,4)", shape=doublecircle];
+	48[label= "':'
+(4,6)-(4,7)", shape=doublecircle];
+	49[label= "F"];
+	49 -- 66;
+	49 -- 67;
+	50[label= "E"];
+	50 -- 68;
+	51[label= "'['
+(5,1)-(5,2)", shape=doublecircle];
+	52[label= "D"];
+	52 -- 69;
+	52 -- 70;
+	52 -- 71;
+	52 -- 72;
+	53[label= "']'
+(5,21)-(5,22)", shape=doublecircle];
+	54[label= "B"];
+	54 -- 73;
+	54 -- 74;
+	54 -- 75;
+	54 -- 76;
+	55[label= "','
+(1,20)-(1,21)", shape=doublecircle];
+	56[label= "'F'
+(1,22)-(1,23)", shape=doublecircle];
+	57[label= "C"];
+	57 -- 77;
+	58[label= "'E''
+(2,10)-(2,12)", shape=doublecircle];
+	59[label= "ε"];
+	60[label= "'+'
+(3,8)-(3,11)", shape=doublecircle];
+	61[label= "G"];
+	61 -- 78;
+	62[label= "F1"];
+	62 -- 79;
+	62 -- 80;
+	63[label= "G"];
+	63 -- 81;
+	64[label= "F1"];
+	64 -- 82;
+	65[label= "ε"];
+	66[label= "G"];
+	66 -- 83;
+	67[label= "F1"];
+	67 -- 84;
+	67 -- 85;
+	68[label= "ε"];
+	69[label= "'T''
+(5,3)-(5,5)", shape=doublecircle];
+	70[label= "':'
+(5,6)-(5,7)", shape=doublecircle];
+	71[label= "F"];
+	71 -- 86;
+	71 -- 87;
+	72[label= "E"];
+	72 -- 88;
+	72 -- 89;
+	72 -- 90;
+	73[label= "'['
+(6,1)-(6,2)", shape=doublecircle];
+	74[label= "D"];
+	74 -- 91;
+	74 -- 92;
+	74 -- 93;
+	74 -- 94;
+	75[label= "']'
+(8,1)-(8,2)", shape=doublecircle];
+	76[label= "B"];
+	76 -- 95;
+	77[label= "ε"];
+	78[label= "'T'
+(3,12)-(3,13)", shape=doublecircle];
+	79[label= "G"];
+	79 -- 96;
+	80[label= "F1"];
+	80 -- 97;
+	81[label= "'@'
+(3,19)-(3,20)", shape=doublecircle];
+	82[label= "ε"];
+	83[label= "'F'
+(4,8)-(4,9)", shape=doublecircle];
+	84[label= "G"];
+	84 -- 98;
+	85[label= "F1"];
+	85 -- 99;
+	86[label= "G"];
+	86 -- 100;
+	87[label= "F1"];
+	87 -- 101;
+	87 -- 102;
+	88[label= "':'
+(5,17)-(5,18)", shape=doublecircle];
+	89[label= "F"];
+	89 -- 103;
+	89 -- 104;
+	90[label= "E"];
+	90 -- 105;
+	91[label= "'F'
+(6,3)-(6,4)", shape=doublecircle];
+	92[label= "':'
+(6,6)-(6,7)", shape=doublecircle];
+	93[label= "F"];
+	93 -- 106;
+	93 -- 107;
+	94[label= "E"];
+	94 -- 108;
+	94 -- 109;
+	94 -- 110;
+	95[label= "ε"];
+	96[label= "'E''
+(3,14)-(3,16)", shape=doublecircle];
+	97[label= "ε"];
+	98[label= "'T''
+(4,10)-(4,12)", shape=doublecircle];
+	99[label= "ε"];
+	100[label= "'*'
+(5,8)-(5,11)", shape=doublecircle];
+	101[label= "G"];
+	101 -- 111;
+	102[label= "F1"];
+	102 -- 112;
+	102 -- 113;
+	103[label= "G"];
+	103 -- 114;
+	104[label= "F1"];
+	104 -- 115;
+	105[label= "ε"];
+	106[label= "G"];
+	106 -- 116;
+	107[label= "F1"];
+	107 -- 117;
+	108[label= "':'
+(7,6)-(7,7)", shape=doublecircle];
+	109[label= "F"];
+	109 -- 118;
+	109 -- 119;
+	110[label= "E"];
+	110 -- 120;
+	111[label= "'F'
+(5,12)-(5,13)", shape=doublecircle];
+	112[label= "G"];
+	112 -- 121;
+	113[label= "F1"];
+	113 -- 122;
+	114[label= "'@'
+(5,19)-(5,20)", shape=doublecircle];
+	115[label= "ε"];
+	116[label= "'n'
+(6,8)-(6,11)", shape=doublecircle];
+	117[label= "ε"];
+	118[label= "G"];
+	118 -- 123;
+	119[label= "F1"];
+	119 -- 124;
+	119 -- 125;
+	120[label= "ε"];
+	121[label= "'T''
+(5,14)-(5,16)", shape=doublecircle];
+	122[label= "ε"];
+	123[label= "'('
+(7,8)-(7,11)", shape=doublecircle];
+	124[label= "G"];
+	124 -- 126;
+	125[label= "F1"];
+	125 -- 127;
+	125 -- 128;
+	126[label= "'E'
+(7,12)-(7,13)", shape=doublecircle];
+	127[label= "G"];
+	127 -- 129;
+	128[label= "F1"];
+	128 -- 130;
+	129[label= "')'
+(7,14)-(7,17)", shape=doublecircle];
+	130[label= "ε"];
 }

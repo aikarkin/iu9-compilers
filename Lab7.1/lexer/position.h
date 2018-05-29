@@ -15,10 +15,16 @@ struct Position {
     unsigned long pos;
     std::string src;
 
-    std::string toString() {
+    std::string str() {
         std::stringstream ss;
         ss << '(' << line << ',' << pos << ')';
         return ss.str();
+    }
+
+    Position() {
+        this->offset = 0;
+        this->line = 1;
+        this->pos = 1;
     }
 
     Position(std::string &src) {

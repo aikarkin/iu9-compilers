@@ -1,4 +1,4 @@
-/home/alex/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/181.4668.70/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/alex/dev/iu9/compilers/Lab7.1
+/home/alex/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/181.4668.70/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/alex/dev/src/iu9/compilers/Lab7.1
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug
+-- Build files have been written to: /home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug

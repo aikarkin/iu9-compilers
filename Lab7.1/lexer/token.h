@@ -5,25 +5,19 @@
 #ifndef LAB7_1_TOKEN_H
 #define LAB7_1_TOKEN_H
 
-#include "domain_tags.h"
+#include <utility>
 #include "fragment.h"
-#include "../parser/RuleItem.h"
+#include "../parser/parser_types/symbol.h"
 
 struct Token {
-    DomainTag tag;
     Fragment frag;
+    int tag;
+    std::optional<std::string> value;
 
-    Token(Fragment frag, DomainTag tag) : tag(tag), frag(frag) {};
+    Token() { }
 
-    std::string toString() {
-        std::stringstream ss;
-
-        ss << TAG_NAMES[tag];
-
-        if(tag != EOP)
-            ss << " " << frag.toString() << ":";
-
-        return ss.str();
+    std::string str() {
+        return "Tag: " + std::to_string(tag) + " "  + frag.str() + ": " + (value.has_value() ? value.value() : "");
     }
 };
 

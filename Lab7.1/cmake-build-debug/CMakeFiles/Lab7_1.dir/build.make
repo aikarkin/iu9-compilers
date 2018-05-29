@@ -43,10 +43,10 @@ RM = /home/alex/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/181.4668.70/bin/c
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/dev/iu9/compilers/Lab7.1
+CMAKE_SOURCE_DIR = /home/alex/dev/src/iu9/compilers/Lab7.1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Lab7_1.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/Lab7_1.dir/flags.make
 
 CMakeFiles/Lab7_1.dir/main.cpp.o: CMakeFiles/Lab7_1.dir/flags.make
 CMakeFiles/Lab7_1.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Lab7_1.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab7_1.dir/main.cpp.o -c /home/alex/dev/iu9/compilers/Lab7.1/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Lab7_1.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab7_1.dir/main.cpp.o -c /home/alex/dev/src/iu9/compilers/Lab7.1/main.cpp
 
 CMakeFiles/Lab7_1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lab7_1.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/dev/iu9/compilers/Lab7.1/main.cpp > CMakeFiles/Lab7_1.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/dev/src/iu9/compilers/Lab7.1/main.cpp > CMakeFiles/Lab7_1.dir/main.cpp.i
 
 CMakeFiles/Lab7_1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lab7_1.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/dev/iu9/compilers/Lab7.1/main.cpp -o CMakeFiles/Lab7_1.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/dev/src/iu9/compilers/Lab7.1/main.cpp -o CMakeFiles/Lab7_1.dir/main.cpp.s
 
 CMakeFiles/Lab7_1.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/Lab7_1.dir/main.cpp.o.provides.build: CMakeFiles/Lab7_1.dir/main.cpp.
 
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: CMakeFiles/Lab7_1.dir/flags.make
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../lexer/TokenStream.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o -c /home/alex/dev/iu9/compilers/Lab7.1/lexer/TokenStream.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o -c /home/alex/dev/src/iu9/compilers/Lab7.1/lexer/TokenStream.cpp
 
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/dev/iu9/compilers/Lab7.1/lexer/TokenStream.cpp > CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/dev/src/iu9/compilers/Lab7.1/lexer/TokenStream.cpp > CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.i
 
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/dev/iu9/compilers/Lab7.1/lexer/TokenStream.cpp -o CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/dev/src/iu9/compilers/Lab7.1/lexer/TokenStream.cpp -o CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.s
 
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o.provides.build: CMakeFiles/Lab7_1.
 
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: CMakeFiles/Lab7_1.dir/flags.make
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../parser/Parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o -c /home/alex/dev/iu9/compilers/Lab7.1/parser/Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o -c /home/alex/dev/src/iu9/compilers/Lab7.1/parser/Parser.cpp
 
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lab7_1.dir/parser/Parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/dev/iu9/compilers/Lab7.1/parser/Parser.cpp > CMakeFiles/Lab7_1.dir/parser/Parser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/dev/src/iu9/compilers/Lab7.1/parser/Parser.cpp > CMakeFiles/Lab7_1.dir/parser/Parser.cpp.i
 
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lab7_1.dir/parser/Parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/dev/iu9/compilers/Lab7.1/parser/Parser.cpp -o CMakeFiles/Lab7_1.dir/parser/Parser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/dev/src/iu9/compilers/Lab7.1/parser/Parser.cpp -o CMakeFiles/Lab7_1.dir/parser/Parser.cpp.s
 
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o.requires:
 
@@ -143,7 +143,7 @@ Lab7_1: CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o
 Lab7_1: CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o
 Lab7_1: CMakeFiles/Lab7_1.dir/build.make
 Lab7_1: CMakeFiles/Lab7_1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Lab7_1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Lab7_1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Lab7_1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -162,6 +162,6 @@ CMakeFiles/Lab7_1.dir/clean:
 .PHONY : CMakeFiles/Lab7_1.dir/clean
 
 CMakeFiles/Lab7_1.dir/depend:
-	cd /home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/dev/iu9/compilers/Lab7.1 /home/alex/dev/iu9/compilers/Lab7.1 /home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug /home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug /home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles/Lab7_1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/dev/src/iu9/compilers/Lab7.1 /home/alex/dev/src/iu9/compilers/Lab7.1 /home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug /home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug /home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles/Lab7_1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Lab7_1.dir/depend
 

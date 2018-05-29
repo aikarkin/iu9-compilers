@@ -3,29 +3,42 @@
 //
 
 #include <iostream>
+#include <utility>
 #include "Parser.h"
 
 
-Parser::Parser(TokenStream &tokens) : tokens(tokens), errors(), result() {
-    rules = std::vector<Rule>{
-       /* 0 */   Rule(E,  {T, E1}),
-       /* 1 */   Rule(E1, {ADD, T, E1}),
-       /* 2 */   Rule(E1, {EPS}),
-       /* 3 */   Rule(T,  {F, T1}),
-       /* 4 */   Rule(T1, {MUL, F, T1}),
-       /* 5 */   Rule(T1, {EPS}),
-       /* 6 */   Rule(F,  {NUM}),
-       /* 7 */   Rule(F,  {LPAREN, E, RPAREN}),
+Parser::Parser(TokenStream tokens): tokens(std::move(tokens)), errors()  {
+    this->rules =  std::vector<rule> {
+            rule(0, { symbol(NONTERM, 1), symbol(NONTERM, 2) }),
+            rule(1, { symbol(TERM, 1), symbol(TERM, 2), symbol(TERM, 3), symbol(NONTERM, 3) }),
+            rule(3, { symbol(TERM, 4), symbol(TERM, 2), symbol(NONTERM, 3) }),
+            rule(3, { symbol(TERM, -1) }),
+            rule(2, { symbol(TERM, 5), symbol(NONTERM, 4), symbol(TERM, 7), symbol(NONTERM, 2) }),
+            rule(2, { symbol(TERM, -1) }),
+            rule(4, { symbol(TERM, 2), symbol(TERM, 6), symbol(NONTERM, 5), symbol(NONTERM, 6) }),
+            rule(6, { symbol(TERM, 6), symbol(NONTERM, 5), symbol(NONTERM, 6) }),
+            rule(6, { symbol(TERM, -1) }),
+            rule(5, { symbol(NONTERM, 7), symbol(NONTERM, 8) }),
+            rule(8, { symbol(NONTERM, 7), symbol(NONTERM, 8) }),
+            rule(8, { symbol(TERM, -1) }),
+            rule(7, { symbol(TERM, 8) }),
+            rule(7, { symbol(TERM, 2) }),
+            rule(7, { symbol(TERM, 9) }),
     };
 
 
     this->transitions = std::vector<std::vector<int>> {
-         /*               +       *       n       (       )       $       */
-         /*  E */   {    -1,     -1,      0,      0,     -1,     -1     },
-         /* E1 */   {     1,     -1,     -1,     -1,      2,      2     },
-         /*  T */   {    -1,     -1,      3,      3,     -1,     -1     },
-         /* T1 */   {     5,      4,     -1,     -1,      5,      5     },
-         /*  F */   {    -1,     -1,      6,      7,     -1,     -1     },
+            /*                (0)     (1)      (2)     (3)     (4)     (5)     (6)     (7)       (8)      (9)                */
+            /*                  $       {  nonterm       }       ,       [       :       ]      term       @
+            /*  S (0)  */    { -1,      0,      -1,     -1,     -1,     -1,     -1,     -1,       -1,     -1 },
+            /*  A (1)  */    { -1,      1,      -1,     -1,     -1,     -1,     -1,     -1,       -1,     -1 },
+            /*  B (2)  */    {  5,     -1,      -1,     -1,     -1,      4,     -1,     -1,       -1,     -1 },
+            /*  C (3)  */    {  3,     -1,      -1,     -1,      2,      3,     -1,     -1,       -1,     -1 },
+            /*  D (4)  */    { -1,     -1,       6,     -1,     -1,     -1,     -1,     -1,       -1,     -1 },
+            /*  F (5)  */    { -1,     -1,       9,     -1,     -1,     -1,     -1,     -1,        9,      9 },
+            /*  E (6)  */    { -1,     -1,      -1,     -1,     -1,     -1,      7,      8,       -1,     -1 },
+            /*  G (7)  */    { -1,     -1,      13,     -1,     -1,     -1,     -1,     -1,       12,     14 },
+            /* F1 (8)  */    { -1,     -1,      10,     -1,     -1,     -1,     11,     11,       10,     10 },
     };
 }
 
@@ -34,40 +47,62 @@ std::vector<std::string> &Parser::getErrors() {
 }
 
 
-int Parser::goTo(NonTerm nonterm, DomainTag term) {
+int Parser::goTo(int nonterm, int term) {
     if(nonterm >= transitions.size() || term >= transitions.at(nonterm).size() + 1) {
         return -1;
     } else if(term == EOP) {
-        return transitions.at(nonterm).at(EPS);
+        return transitions.at(nonterm).at(EOP);
     }
 
     return transitions.at(nonterm).at(term);
 }
 
-void Parser::parse() {
+stl_tree::tree<st_data> Parser::parse() {
+    symbol start = rules[0].left;
+    stl_tree::tree<st_data> tr(start.tag);
+
     if(!tokens.hasNext())
-        return;
+        return tr;
 
     Token tok = tokens.next();
-    this->items.push(EOP);
-    this->items.push(E);
+    st_iter parent = tr.begin();
+
+    // put EOP on top of stack
+    this->symbols.push(symbol(TERM, EOP));
+    // put start non-term (left non-term of first rule)
+    this->symbols.push(start);
+
+    this->nodes.push(parent);
 
     do {
-        RuleItem top = this->items.top();
+        symbol top = this->symbols.top();
+
         if(top.type == TERM) {
-            if (top.value.term == tok.tag) {
-                this->items.pop();
+            if (top.tag == tok.tag) {
+                std::cout << "shift " << tokens.tag_to_tok.at(tok.tag) << std::endl;
+                if(!nodes.empty()) {
+                    this->nodes.top()->data = tok;
+                    this->nodes.pop();
+                }
+                this->symbols.pop();
+
 
                 if (tokens.hasNext()) {
                     tok = tokens.next();
                 } else {
                     break;
                 }
-            } else if(top.value.term == EPS) {
-                this->items.pop();
+            } else if(top.tag == EMPTY) {
+                Token emptyTok = Token(tok);
+                emptyTok.frag.follow = emptyTok.frag.begin;
+                emptyTok.tag = EMPTY;
+                this->nodes.top()->data = emptyTok;
+
+                std::cout << "empty" << std::endl;
+                this->symbols.pop();
+                this->nodes.pop();
             } else {
-                errors.push_back("Syntax error at " + tok.frag.begin.toString() + ": expected " + top.toString() +
-                                 ", but \"" + TAG_NAMES[tok.tag] + "\" found");
+                errors.push_back(invalidToken(tok));
                 if(tokens.hasNext()) {
                     tok = tokens.next();
                 } else {
@@ -76,19 +111,29 @@ void Parser::parse() {
             }
         } else {
             int ruleIdx;
-            if((ruleIdx = goTo(top.value.nonterm, tok.tag)) >= 0) {
-                items.pop();
+            if((ruleIdx = goTo(top.tag, tok.tag)) >= 0) {
+                std::cout << "reduce " << ruleIdx << std::endl;
 
-                for (int i = (int)rules[ruleIdx].right.size() - 1; i >= 0; --i) {
-                    items.push(rules[ruleIdx].right[i]);
+                std::vector<symbol> &rs = rules[ruleIdx].right;
+                parent = nodes.top();
+
+                symbols.pop();
+                nodes.pop();
+
+
+                for (int i = (int)rs.size() - 1; i >= 0; --i) {
+                    symbols.push(rs[i]);
+                    nodes.push(tr.append_child(parent, rs[i].tag));
+//                    if(rs[i].type == NONTERM) {
+//                        nodes.push(tr.append_child(parent, rs[i].tag));
+//                    }
                 }
-                result.push_back(ruleIdx);
             } else {
                 if(tok.tag == EOP) {
                     errors.emplace_back("Syntax error: unexpected end of program");
                 } else {
-                    errors.emplace_back("Syntax error at " + tok.frag.begin.toString() + ": unexpected token \"" +
-                                        TAG_NAMES[tok.tag] + "\"");
+                    errors.emplace_back(invalidToken(tok));
+                    std::cout << invalidToken(tok) << std::endl;
                 }
                 if(tokens.hasNext())
                     tok = tokens.next();
@@ -97,56 +142,34 @@ void Parser::parse() {
                 }
             }
         }
-    } while(!items.empty());
+        std::cout << std::endl;
+    } while(!symbols.empty());
 
-    while(!items.empty()) {
+    while(!symbols.empty()) {
         int ruleIdx;
-        RuleItem top = items.top();
-        if((ruleIdx = goTo(top.value.nonterm, tok.tag)) >= 0) {
-            result.push_back(ruleIdx);
+        symbol top = symbols.top();
+        if(top.type == NONTERM && (ruleIdx = goTo(top.tag, tok.tag)) >= 0) {
+            // ???
+        } else if(top.type == TERM) {
+            errors.emplace_back("Syntax error: unexpected term - " + std::to_string(top.tag) );
         }
-        items.pop();
-    }
-}
-
-stl_tree::tree<RuleItem> Parser::getSyntaxTree() {
-    using iter = stl_tree::tree<RuleItem>::iterator;
-    stl_tree::tree<RuleItem> tr(rules[result[0]].left);
-    std::stack<iter> nodes;
-    nodes.push(tr.begin());
-
-
-    for(int ri : result) {
-        Rule rule = rules[ri];
-        iter top = nodes.top();
+        symbols.pop();
         nodes.pop();
-
-        for (int i = (int)rule.right.size() - 1; i >= 0; --i) {
-            iter appended = tr.append_child(top, rule.right[i]);
-            if(rule.right[i].type == NONTERM)
-                nodes.push(appended);
-        }
     }
-
 
     return tr;
 }
 
+std::string Parser::invalidToken(Token tok) {
+    return "Syntax error at " + tok.frag.begin.str() + ": unexpected token - \"" + tokens.tag_to_tok.at(tok.tag) + "\"";
+}
 
-//void Parser::printStack(std::stack<RuleItem> stack) {
-//    std::vector<std::string> items;
-//    std::cout << "stack: ";
-//
-//    while(!stack.empty()) {
-//        items.push_back(stack.top().toString());
-//        stack.pop();
-//    }
-//
-//    std::reverse(items.begin(), items.end());
-//
-//    for(std::string &item : items) {
-//        std::cout << item << " ";
-//    }
-//
-//    std::cout << std::endl;
-//}
+void Parser::printStack() {
+    std::stack<symbol> stack = symbols;
+    while(!stack.empty()) {
+        std::cout << (stack.top().type == TERM ? "T-" : "NT-") << stack.top().tag << " ";
+        stack.pop();
+    }
+
+    std::cout << std::endl;
+}

@@ -7,28 +7,51 @@
 
 
 #include "../lexer/TokenStream.h"
-#include "Rule.h"
+#include "parser_types/rule.h"
 #include "../tree/tree.hpp"
 #include <stack>
 #include <algorithm>
+#include <variant>
+
+struct st_data {
+    std::variant<std::monostate, int, Token> data;
+    int childrenCount;
+
+    st_data() {
+        childrenCount = 0;
+    }
+
+    st_data(int nonTermTag) {
+        data = nonTermTag;
+        childrenCount = 0;
+    }
+
+    st_data(Token tok) {
+        data = tok;
+        childrenCount = 0;
+    }
+};
+
+using st_iter = stl_tree::tree<st_data>::iterator;
 
 class Parser {
 public:
-    Parser(TokenStream &tokens);
-    void parse();
+    Parser(TokenStream tokens);
+    stl_tree::tree<st_data> parse();
     std::vector<std::string> &getErrors();
-    stl_tree::tree<RuleItem> getSyntaxTree();
 private:
-    std::stack<RuleItem> items;
+    std::stack<symbol> symbols;
 
-    std::vector<Rule> rules;
-    std::vector<std::string> errors;
-    TokenStream tokens;
     std::vector<std::vector<int>> transitions;
-    std::vector<int> result;
+    std::vector<rule> rules;
+    std::stack<st_iter> nodes;
 
-    int goTo(NonTerm nonterm, DomainTag tag);
-//    void printStack(std::stack<RuleItem> stack);
+    TokenStream tokens;
+    std::vector<std::string> errors;
+
+    int goTo(int nonterm, int tag);
+    std::string invalidToken(Token tok);
+    void printStack();
 };
 
 

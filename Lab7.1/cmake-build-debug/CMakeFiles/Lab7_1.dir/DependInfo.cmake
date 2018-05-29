@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/alex/dev/iu9/compilers/Lab7.1/lexer/TokenStream.cpp" "/home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o"
-  "/home/alex/dev/iu9/compilers/Lab7.1/main.cpp" "/home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles/Lab7_1.dir/main.cpp.o"
-  "/home/alex/dev/iu9/compilers/Lab7.1/parser/Parser.cpp" "/home/alex/dev/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o"
+  "/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/TokenStream.cpp" "/home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o"
+  "/home/alex/dev/src/iu9/compilers/Lab7.1/main.cpp" "/home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles/Lab7_1.dir/main.cpp.o"
+  "/home/alex/dev/src/iu9/compilers/Lab7.1/parser/Parser.cpp" "/home/alex/dev/src/iu9/compilers/Lab7.1/cmake-build-debug/CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -3,35 +3,32 @@
 
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../lexer/TokenStream.cpp
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../lexer/TokenStream.h
-CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../lexer/domain_tags.h
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../lexer/fragment.h
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../lexer/position.h
 CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../lexer/token.h
-CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../parser/NonTerm.h
-CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../parser/RuleItem.h
+CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../parser/parser_types/symbol.h
+CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o: ../parser/parser_types/symbol_type.h
 
 CMakeFiles/Lab7_1.dir/main.cpp.o: ../lexer/TokenStream.h
-CMakeFiles/Lab7_1.dir/main.cpp.o: ../lexer/domain_tags.h
 CMakeFiles/Lab7_1.dir/main.cpp.o: ../lexer/fragment.h
 CMakeFiles/Lab7_1.dir/main.cpp.o: ../lexer/position.h
 CMakeFiles/Lab7_1.dir/main.cpp.o: ../lexer/token.h
 CMakeFiles/Lab7_1.dir/main.cpp.o: ../main.cpp
-CMakeFiles/Lab7_1.dir/main.cpp.o: ../parser/NonTerm.h
 CMakeFiles/Lab7_1.dir/main.cpp.o: ../parser/Parser.h
-CMakeFiles/Lab7_1.dir/main.cpp.o: ../parser/Rule.h
-CMakeFiles/Lab7_1.dir/main.cpp.o: ../parser/RuleItem.h
+CMakeFiles/Lab7_1.dir/main.cpp.o: ../parser/parser_types/rule.h
+CMakeFiles/Lab7_1.dir/main.cpp.o: ../parser/parser_types/symbol.h
+CMakeFiles/Lab7_1.dir/main.cpp.o: ../parser/parser_types/symbol_type.h
 CMakeFiles/Lab7_1.dir/main.cpp.o: ../tree/tree.hpp
 CMakeFiles/Lab7_1.dir/main.cpp.o: ../tree/tree_util.hpp
 
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../lexer/TokenStream.h
-CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../lexer/domain_tags.h
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../lexer/fragment.h
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../lexer/position.h
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../lexer/token.h
-CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../parser/NonTerm.h
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../parser/Parser.cpp
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../parser/Parser.h
-CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../parser/Rule.h
-CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../parser/RuleItem.h
+CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../parser/parser_types/rule.h
+CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../parser/parser_types/symbol.h
+CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../parser/parser_types/symbol_type.h
 CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o: ../tree/tree.hpp
 

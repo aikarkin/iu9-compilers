@@ -6,95 +6,101 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/TokenStream.cpp
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/TokenStream.cpp
 sstream
 -
 iostream
 -
 TokenStream.h
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/TokenStream.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/TokenStream.h
 
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/TokenStream.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/TokenStream.h
 string
 -
 vector
 -
 memory
 -
+unordered_set
+-
+map
+-
 token.h
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/token.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/token.h
 
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/domain_tags.h
-
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/fragment.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/fragment.h
 position.h
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/position.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/position.h
 sstream
 -
 
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/position.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/position.h
 sstream
 -
 
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/token.h
-domain_tags.h
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/domain_tags.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/token.h
+utility
+-
 fragment.h
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/fragment.h
-../parser/RuleItem.h
-/home/alex/dev/iu9/compilers/Lab7.1/parser/RuleItem.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/fragment.h
+../parser/parser_types/symbol.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/parser_types/symbol.h
 
-/home/alex/dev/iu9/compilers/Lab7.1/main.cpp
+/home/alex/dev/src/iu9/compilers/Lab7.1/main.cpp
 iostream
 -
 fstream
 -
 lexer/TokenStream.h
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/TokenStream.h
-parser/RuleItem.h
-/home/alex/dev/iu9/compilers/Lab7.1/parser/RuleItem.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/TokenStream.h
+parser/parser_types/symbol.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/parser_types/symbol.h
 parser/Parser.h
-/home/alex/dev/iu9/compilers/Lab7.1/parser/Parser.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/Parser.h
 tree/tree.hpp
-/home/alex/dev/iu9/compilers/Lab7.1/tree/tree.hpp
+/home/alex/dev/src/iu9/compilers/Lab7.1/tree/tree.hpp
 tree/tree_util.hpp
-/home/alex/dev/iu9/compilers/Lab7.1/tree/tree_util.hpp
+/home/alex/dev/src/iu9/compilers/Lab7.1/tree/tree_util.hpp
+variant
+-
 
-/home/alex/dev/iu9/compilers/Lab7.1/parser/NonTerm.h
-
-/home/alex/dev/iu9/compilers/Lab7.1/parser/Parser.cpp
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/Parser.cpp
 iostream
 -
+utility
+-
 Parser.h
-/home/alex/dev/iu9/compilers/Lab7.1/parser/Parser.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/Parser.h
 
-/home/alex/dev/iu9/compilers/Lab7.1/parser/Parser.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/Parser.h
 ../lexer/TokenStream.h
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/TokenStream.h
-Rule.h
-/home/alex/dev/iu9/compilers/Lab7.1/parser/Rule.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/lexer/TokenStream.h
+parser_types/rule.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/parser_types/rule.h
 ../tree/tree.hpp
-/home/alex/dev/iu9/compilers/Lab7.1/tree/tree.hpp
+/home/alex/dev/src/iu9/compilers/Lab7.1/tree/tree.hpp
 stack
 -
 algorithm
 -
+variant
+-
 
-/home/alex/dev/iu9/compilers/Lab7.1/parser/Rule.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/parser_types/rule.h
 utility
 -
 vector
 -
-RuleItem.h
-/home/alex/dev/iu9/compilers/Lab7.1/parser/RuleItem.h
+symbol.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/parser_types/symbol.h
 
-/home/alex/dev/iu9/compilers/Lab7.1/parser/RuleItem.h
-../lexer/domain_tags.h
-/home/alex/dev/iu9/compilers/Lab7.1/lexer/domain_tags.h
-NonTerm.h
-/home/alex/dev/iu9/compilers/Lab7.1/parser/NonTerm.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/parser_types/symbol.h
+symbol_type.h
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/parser_types/symbol_type.h
 
-/home/alex/dev/iu9/compilers/Lab7.1/tree/tree.hpp
+/home/alex/dev/src/iu9/compilers/Lab7.1/parser/parser_types/symbol_type.h
+
+/home/alex/dev/src/iu9/compilers/Lab7.1/tree/tree.hpp
 cassert
 -
 memory
@@ -112,9 +118,9 @@ algorithm
 cstddef
 -
 
-/home/alex/dev/iu9/compilers/Lab7.1/tree/tree_util.hpp
+/home/alex/dev/src/iu9/compilers/Lab7.1/tree/tree_util.hpp
 iostream
 -
 tree.hpp
-/home/alex/dev/iu9/compilers/Lab7.1/tree/tree.hpp
+/home/alex/dev/src/iu9/compilers/Lab7.1/tree/tree.hpp
 
