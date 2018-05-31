@@ -20,7 +20,7 @@ std::string replace_all(std::string str, std::string substr, std::string replace
     return str;
 }
 
-void printSyntaxTree(stl_tree::tree<st_data> &syntax, std::ostream &str) {
+void printSyntaxTree(TokenStream tokens, stl_tree::tree<st_data> &syntax, std::ostream &str) {
     std::string NON_TERMINALS[] = {"S", "A", "B", "C", "D", "F", "E", "G", "F1"};
     std::string TERMINALS[] = {"$", "{", "NONTERM", "}", ",", "[", ":", "]", "TERM", "@"};
 
@@ -47,7 +47,7 @@ void printSyntaxTree(stl_tree::tree<st_data> &syntax, std::ostream &str) {
             if(tok.tag == EMPTY) {
                 nodeVal = "ε";
             } else {
-                nodeVal = tok.value.has_value() ? tok.value.value() : TERMINALS[tok.tag];
+                nodeVal = tok.value.has_value() ? tok.value.value() : tokens.tag_to_tok[tok.tag];
                 nodeVal = "'" + replace_all(nodeVal, "\"", "") + "'";
                 nodeVal += "\n" + tok.frag.str();
             }
@@ -102,10 +102,21 @@ int main(int argc, char **argv) {
     }
 
     TokenStream tokens(src);
-//
+
 //    while(tokens.hasNext()) {
 //        std::cout << tokens.next().str() << std::endl;
 //    }
+
+//
+//    std::cout << (int)('@') << std::endl;
+//    std::cout << (int)('[') << std::endl;
+//    std::cout << (int)(']') << std::endl;
+//    std::cout << (int)('(') << std::endl;
+//    std::cout << (int)(')') << std::endl;
+//    std::cout << (int)('{') << std::endl;
+//    std::cout << (int)('}') << std::endl;
+//    std::cout << (int)(':') << std::endl;
+//    std::cout << (int)(',') << std::endl;
 
 
     Parser parser(tokens);
@@ -113,9 +124,9 @@ int main(int argc, char **argv) {
 
     if(argc >= 2) {
         std::ofstream graphfile(argv[2]);
-        printSyntaxTree(syntax, graphfile);
+        printSyntaxTree(tokens, syntax, graphfile);
     } else {
-        printSyntaxTree(syntax, std::cout);
+        printSyntaxTree(tokens, syntax, std::cout);
     }
 
     if(!tokens.getErrors().empty() || !parser.getErrors().empty())

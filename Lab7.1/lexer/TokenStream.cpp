@@ -13,21 +13,33 @@ TokenStream::TokenStream(std::string &source) : pos(source) {
     this->pos.line = 1;
     this->pos.pos = 1;
 
-    this->tag_id = 1;
-
     this->errors = std::make_shared< std::vector<std::string> >();
+//
+//    this->terminal_characters.emplace('@'); // 64
+//    this->terminal_characters.emplace('['); // 91
+//    this->terminal_characters.emplace(']'); // 93
+//    this->terminal_characters.emplace('('); // 40
+//    this->terminal_characters.emplace(')'); // 41
+//    this->terminal_characters.emplace('{'); // 123
+//    this->terminal_characters.emplace('}'); // 125
+//    this->terminal_characters.emplace(':'); // 58
+//    this->terminal_characters.emplace(','); // 44
 
-    this->terminal_characters.emplace('@');
-    this->terminal_characters.emplace('[');
-    this->terminal_characters.emplace(']');
-    this->terminal_characters.emplace('(');
-    this->terminal_characters.emplace(')');
-    this->terminal_characters.emplace('{');
-    this->terminal_characters.emplace('}');
-    this->terminal_characters.emplace(':');
-    this->terminal_characters.emplace(',');
-    this->terminal_characters.emplace('+');
-    this->terminal_characters.emplace('*');
+
+    this->tok_to_tag.emplace("$", 0);
+    this->tok_to_tag.emplace("{", 1);
+    this->tok_to_tag.emplace("NONTERM", 2);
+    this->tok_to_tag.emplace("}", 3);
+    this->tok_to_tag.emplace(",", 4);
+    this->tok_to_tag.emplace("[", 5);
+    this->tok_to_tag.emplace(":", 6);
+    this->tok_to_tag.emplace("]", 7);
+    this->tok_to_tag.emplace("TERM", 8);
+    this->tok_to_tag.emplace("@", 9);
+
+    for(auto const & [tok, tag] : tok_to_tag) {
+        tag_to_tok.emplace(tag, tok);
+    }
 }
 
 Token TokenStream::next() {
@@ -39,39 +51,26 @@ Token TokenStream::next() {
         tok.frag.begin = this->pos;
         this->pos = this->pos.inc();
         tok.frag.follow = this->pos;
+        tok.tag = tok_to_tag.at("$");
 
-        if(tok_to_tag.count("$") == 0) {
-            tag_to_tok.emplace(EOP, "$");
-            tok_to_tag.emplace("$", EOP);
-        }
-        tok.tag = 0;
     } else {
         tok.frag.begin = this->pos;
 
         char ch = this->source.at(this->pos.offset);
 
+        const char term[] = {ch};
+
         // single char term
-        if(terminal_characters.count(ch) > 0) {
+        if(tok_to_tag.count(term)) {
             this->pos = this->pos.inc();
             tok.frag.follow = this->pos;
 
-            const char term[] = {ch};
-            if(tok_to_tag.count(term) == 0) {
-                tag_to_tok.emplace(tag_id, term);
-                tok_to_tag.emplace(term, tag_id++);
-            }
             tok.tag = tok_to_tag.at(term);
-
+//            std::cout << "recognize " << ch << std::endl;
         // quoted term (TERM)
         } else if(ch == '\"') {
             std::string term = this->parseString();
             tok.frag.follow = this->pos;
-
-            if(tok_to_tag.count("TERM") == 0) {
-                tag_to_tok.emplace(tag_id, term);
-                tok_to_tag.emplace("TERM", tag_id++);
-            }
-
             tok.tag = tok_to_tag.at("TERM");
             tok.value = term;
 
@@ -79,11 +78,6 @@ Token TokenStream::next() {
         } else if(std::isupper(ch)) {
             std::string nonTerm = this->parseNonterm();
             tok.frag.follow = this->pos;
-            if(tok_to_tag.count("NONTERM") == 0) {
-                tag_to_tok.emplace(tag_id, nonTerm);
-                tok_to_tag.emplace("NONTERM", tag_id++);
-            }
-
             tok.tag = tok_to_tag.at("NONTERM");
             tok.value = nonTerm;
         // INVALID TOKEN

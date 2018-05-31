@@ -35,7 +35,6 @@ private:
     void invalidToken(Position pos, char ch);
 
     std::unordered_set<char> terminal_characters;
-    int tag_id;
 };
 
 
