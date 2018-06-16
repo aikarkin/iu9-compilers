@@ -22,9 +22,10 @@ namespace gr_parser {
 
     void printSyntaxTree(stl_tree::tree<st_data> &syntax, std::ostream &str) {
         /*  0         1           2             3          4        5            6           7           8            9  */
-        std::string NON_TERMINALS[] = {"Start", "Nonterms", "NontermsTail", "NonTermDef", "Rules", "RuleAlts",
-                                       "RuleAltsTail", "RuleAlt", "RuleAltTail'", "Token"};
-//    std::string NON_TERMINALS[] = {"S","A","C","A'","B","D","E","F","F'","G"};
+//        std::string NON_TERMINALS[] = {"Start", "Nonterms", "NontermsTail", "NonTermDef", "Rules", "RuleAlts",
+//                                       "RuleAltsTail", "RuleAlt", "RuleAltTail'", "Token"};
+    //std::string NON_TERMINALS[] = {"S","A","C","A'","B","D","E","F","F'","G"};
+        std::string NON_TERMINALS[] = {"E","E'","T","T'","F"};
 
         int i = 0;
         std::queue<st_iter> nodes;

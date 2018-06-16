@@ -548,6 +548,6 @@ graph syntax_tree {
 	272[label= "[8] RuleAltTail'"];
 	272 -- 275;
 	273[label= "ε"];
-	274[label= "[3] '@'", shape=doublecircle];
+	274[label= "[1] '@'", shape=doublecircle];
 	275[label= "ε"];
 }

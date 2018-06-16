@@ -1,57 +1,76 @@
 #include <iostream>
 #include "ParserGenerator.h"
 
-void ParserGenerator::generate_by_syntax(const stl_tree::tree<gr_parser::st_data> &syntax) {
+void ParserGenerator::generate_by_syntax(char term_symb, char non_term_symb, const stl_tree::tree<gr_parser::st_data> &syntax) {
+    reserved_symbols.emplace(term_symb);
+    reserved_symbols.emplace(non_term_symb);
+    reserved_symbols.emplace('$');
+
+    t_tag_by_ch.emplace('$', gr_lexer::TAG_EOP);
+    t_tag_by_ch.emplace(term_symb, gr_lexer::TAG_TERM);
+    t_tag_by_ch.emplace(non_term_symb, gr_lexer::TAG_NONTERM);
+
     def_non_terminals(syntax.begin());
     def_rules(syntax.begin());
 
-//    std::cout << "NONTERMS: " << std::endl;
-//
-//    for(auto&& [tok, tag] : nt_tag_by_str) {
-//        std::cout << "-- " << tok << ": " << tag << std::endl;
-//    }
-//
-//    std::cout << "AXIOM: " << axiom_tag << std::endl;
-//
-//    std::cout << "TERMS: " << std::endl;
-//
-//    for(auto&& [term, tag] : t_tag_by_ch) {
-//        std::cout << "-- " << term << ": " << tag << std::endl;
-//    }
-//
-//
-//    for(auto& rule : rules) {
-//        std::cout << rule.left.tag << " -> ";
-//
-//        for(auto& tok : rule.right) {
-//            std::cout << (tok.type == gr_parser::TERM ? "TERM" : "NON_TERM")  << "(" << tok.tag << ") ";
-//        }
-//
-//        std::cout << std::endl;
-//    }
-//
-//
+    std::cout << "NONTERMS: " << std::endl;
+
+    for(auto&& [tok, tag] : nt_tag_by_str) {
+        std::cout << "-- " << tok << ": " << tag << std::endl;
+    }
+
+    std::cout << "AXIOM: " << axiom_tag << std::endl;
+
+    std::cout << "TERMS: " << std::endl;
+
+    for(auto&& [term, tag] : t_tag_by_ch) {
+        std::cout << "-- " << term << ": " << tag << std::endl;
+    }
+
+
+    for(auto& rule : rules) {
+        std::cout << rule.left.tag << " -> ";
+
+        for(auto& tok : rule.right) {
+            std::cout << (tok.type == gr_parser::TERM ? "TERM" : "NON_TERM")  << "(" << tok.tag << ") ";
+        }
+
+        std::cout << std::endl;
+    }
+
+
     build_first();
     build_follow();
-//
-//    std::cout << "FIRST:" << std::endl;
-//    for(const auto& [nt, terms] : first_sets) {
-//        std::cout << nt << ": ";
-//        for(const auto& term: terms)
-//            std::cout << term << " ";
-//        std::cout << std::endl;
-//    }
-//
-//    std::cout << "FOLLOW:" << std::endl;
-//    for(const auto& [nt, terms] : follow_sets) {
-//        std::cout << nt << ": ";
-//        for(const auto& term: terms)
-//            std::cout << term << " ";
-//        std::cout << std::endl;
-//    }
+    build_table();
+
+    parser_ptr = std::make_unique<gr_parser::Parser>(*ll1_table_ptr, rules);
+    std::vector<char> spec_chars(t_tag_by_ch.size());
+
+    for(auto &[ch, tag] : t_tag_by_ch) {
+        if(!reserved_symbols.count(ch))
+            spec_chars.at(tag - 3) = ch;
+    }
+    lexer_ptr = std::make_unique<gr_lexer::Lexer>(spec_chars);
+
+    std::cout << "FIRST:" << std::endl;
+    for(const auto& [nt, terms] : first_sets) {
+        std::cout << nt << ": ";
+        for(const auto& term: terms)
+            std::cout << term << " ";
+        std::cout << std::endl;
+    }
+
+    std::cout << "FOLLOW:" << std::endl;
+    for(const auto& [nt, terms] : follow_sets) {
+        std::cout << nt << ": ";
+        for(const auto& term: terms)
+            std::cout << term << " ";
+        std::cout << std::endl;
+    }
 }
 
-void ParserGenerator::nonterm_lookup(gr_parser::st_iter node, int tag, const std::function<void(gr_parser::st_iter)> whenFound) {
+void ParserGenerator::non_term_lookup(gr_parser::st_iter node, int tag,
+                                      std::function<void(gr_parser::st_iter)> whenFound) {
     std::queue<gr_parser::st_iter> queue;
     gr_parser::st_iter top;
     queue.emplace(node);
@@ -84,26 +103,26 @@ std::vector<std::string> ParserGenerator::get_errors() {
 void ParserGenerator::def_non_terminals(gr_parser::st_iter node) {
     int nt_tag = 0;
 
-    this->nonterm_lookup(node, NONTERM_DEF, [&](gr_parser::st_iter nt_node) {
+    this->non_term_lookup(node, NONTERM_DEF, [&](gr_parser::st_iter nt_node) {
         int cc = stl_tree::tree<gr_parser::st_data>::number_of_children(nt_node);
         Token tok, nt;
         bool isAxiom = false;
 
         for (int i = 0; i < cc; ++i) {
             auto child = stl_tree::tree<gr_parser::st_data>::child(nt_node, i);
-            if(std::holds_alternative<Token>(*child)) {
+            if (std::holds_alternative<Token>(*child)) {
                 tok = std::get<Token>(*child);
-                if(tok.tag == gr_lexer::TAG_NONTERM && tok.value.has_value()) {
+                if (tok.tag == gr_lexer::TAG_NONTERM && tok.value.has_value()) {
                     nt_tag_by_str.emplace(tok.value.value(), nt_tag++);
                     nt = tok;
-                } else if(tok.tag == 4) {
+                } else if (tok.tag == 4) {
                     isAxiom = true;
                 }
             }
         }
 
-        if(isAxiom) {
-            if(axiom_tag >= 0) {
+        if (isAxiom) {
+            if (axiom_tag >= 0) {
                 add_error("Duplicated axiom: " + nt.value.value());
             }
 
@@ -116,18 +135,18 @@ void ParserGenerator::def_rules(gr_parser::st_iter node) {
     int t_tag = 3;
 
 
-    this->nonterm_lookup(node, RULE_ALTS, [&](gr_parser::st_iter rule_alts_node) {
+    this->non_term_lookup(node, RULE_ALTS, [&](gr_parser::st_iter rule_alts_node) {
         int cc = stl_tree::tree<gr_parser::st_data>::number_of_children(rule_alts_node);
         int ls;
 
 
-        for(int i = cc - 1; i >=0; i--) {
+        for (int i = cc - 1; i >= 0; i--) {
             auto child = stl_tree::tree<gr_parser::st_data>::child(rule_alts_node, i);
 
-            if(std::holds_alternative<Token>(*child)) {
+            if (std::holds_alternative<Token>(*child)) {
                 Token tok = std::get<Token>(*child);
-                if(tok.tag == gr_lexer::TAG_NONTERM) {
-                    if(tok.value.has_value() && nt_tag_by_str.count(tok.value.value())) {
+                if (tok.tag == gr_lexer::TAG_NONTERM) {
+                    if (tok.value.has_value() && nt_tag_by_str.count(tok.value.value())) {
                         ls = nt_tag_by_str.at(tok.value.value());
                     } else {
                         add_error("Non-terminal '" + tok.value.value_or("UNKNOWN") + "' is not defined.");
@@ -136,12 +155,12 @@ void ParserGenerator::def_rules(gr_parser::st_iter node) {
             }
         }
 
-        nonterm_lookup(rule_alts_node, RULE_ALT, [&](gr_parser::st_iter alt_node) {
+        non_term_lookup(rule_alts_node, RULE_ALT, [&](gr_parser::st_iter alt_node) {
             gr_parser::rule alt_rule(ls, std::vector<gr_parser::symbol>());
 
-            nonterm_lookup(alt_node, TOKEN, [&](gr_parser::st_iter tok_node) {
+            non_term_lookup(alt_node, TOKEN, [&](gr_parser::st_iter tok_node) {
                 auto child = stl_tree::tree<gr_parser::st_data>::child(tok_node, 0);
-                if(std::holds_alternative<Token>(*child)) {
+                if (std::holds_alternative<Token>(*child)) {
                     Token tok = std::get<Token>(*child);
 
                     std::string tok_val = tok.value.value();
@@ -151,10 +170,10 @@ void ParserGenerator::def_rules(gr_parser::st_iter node) {
                     } else if (tok.tag == gr_lexer::TAG_TERM) {
                         int tag;
 
-                        if(tok_val.length() == 3 && tok_val.at(0) == '\"' && tok_val.at(2) == '\"') {
+                        if (tok_val.length() == 3 && tok_val.at(0) == '\"' && tok_val.at(2) == '\"') {
                             char ch = tok_val.at(1);
 
-                            if(t_tag_by_ch.count(ch) == 0)
+                            if (!reserved_symbols.count(ch) && t_tag_by_ch.count(ch) == 0)
                                 t_tag_by_ch.emplace(ch, t_tag++);
 
                             tag = t_tag_by_ch.at(ch);
@@ -163,7 +182,7 @@ void ParserGenerator::def_rules(gr_parser::st_iter node) {
                         }
 
                         alt_rule.right.emplace_back(gr_parser::TERM, tag);
-                    } else if(tok.tag == TAG_AT) {
+                    } else if (tok.tag == TAG_AT) {
                         alt_rule.right.emplace_back(gr_parser::TERM, gr_lexer::TAG_EMPTY);
                     }
                 }
@@ -269,5 +288,50 @@ void ParserGenerator::build_follow() {
             }
         }
     } while(!changed);
+}
+
+void ParserGenerator::build_table() {
+    ll1_table_ptr = std::make_unique<std::vector<std::vector<int>>>(nt_tag_by_str.size(), std::vector<int>(t_tag_by_ch.size(), -1));
+
+    for (int i = 0; i < rules.size(); ++i) {
+        auto &rs_first = rules[i].right[0];
+        if(rs_first.type == gr_parser::NONTERM) {
+            for(const auto& first_tok : first_sets.at(rs_first.tag)) {
+                if(first_tok != gr_lexer::TAG_EMPTY) {
+                    ll1_table_ptr->at(rules[i].left.tag).at(first_tok) = i;
+                } else {
+                    for(const auto& follow_tok : follow_sets.at(rules[i].left.tag)) {
+                        ll1_table_ptr->at(rules[i].left.tag).at(follow_tok) = i;
+                    }
+                }
+            }
+        } else {
+            if(rs_first.tag == gr_lexer::TAG_EMPTY) {
+                for(const auto& follow_tok : follow_sets.at(rules[i].left.tag)) {
+                    ll1_table_ptr->at(rules[i].left.tag).at(follow_tok) = i;
+                }
+            } else {
+                ll1_table_ptr->at(rules[i].left.tag).at((rs_first.tag)) = i;
+            }
+        }
+    }
+
+    std::cout << "LL1 Table: " << std::endl;
+
+    for(int i = 0; i < ll1_table_ptr->size(); i++) {
+        for (int j = 0; j < ll1_table_ptr->at(i).size(); ++j) {
+            std::cout << ll1_table_ptr->at(i).at(j) << " ";
+        }
+        std::cout << std::endl;
+    }
+
+}
+
+gr_parser::Parser ParserGenerator::get_parser() {
+    return *parser_ptr;
+}
+
+gr_lexer::Lexer ParserGenerator::get_lexer() {
+    return *lexer_ptr;
 }
 

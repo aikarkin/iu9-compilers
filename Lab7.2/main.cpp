@@ -66,6 +66,31 @@ int main(int argc, char **argv) {
 
     Lexer lexer(spec_toks);
     TokenStream tokens = lexer.tokenize(src);
+//
+//    while(tokens.hasNext()) {
+//        Token tok = tokens.next();
+//        std::cout << tok.frag.str() << ": " << tok.str() << std::endl;
+//    }
+//
+    tokens.reset();
+
+    Parser parser(transitions, rules);
+    stl_tree::tree<st_data> syntax = parser.parse(tokens);
+
+    ParserGenerator parser_gen;
+    parser_gen.generate_by_syntax('#', '~', syntax);
+
+    Parser generated_parser = parser_gen.get_parser();
+    Lexer generated_lexer = parser_gen.get_lexer();
+
+    sourcefile = std::ifstream("/home/alex/dev/src/iu9/compilers/Lab7.2/res/arithmetic.txt");
+    src = "";
+
+    while(std::getline(sourcefile, line)) {
+        src += line + "\n";
+    }
+
+    tokens = generated_lexer.tokenize(src);
 
     while(tokens.hasNext()) {
         Token tok = tokens.next();
@@ -74,11 +99,8 @@ int main(int argc, char **argv) {
 
     tokens.reset();
 
-    Parser parser(transitions, rules);
-    stl_tree::tree<st_data> syntax = parser.parse(tokens);
-
-    ParserGenerator parser_gen;
-    parser_gen.generate_by_syntax(syntax);
+    std::cout << "-- NEW PARSE -- " << std::endl;
+    stl_tree::tree<st_data> new_syntax = generated_parser.parse(tokens);
 
     std::cout << "Parser Generator Errors:" << std::endl;
 
@@ -89,9 +111,9 @@ int main(int argc, char **argv) {
 
     if(argc >= 2) {
         std::ofstream graphfile(argv[2]);
-        printSyntaxTree(syntax, graphfile);
+        printSyntaxTree(new_syntax, graphfile);
     } else {
-        printSyntaxTree(syntax, std::cout);
+        printSyntaxTree(new_syntax, std::cout);
     }
 
     if(!tokens.getErrors().empty() || !parser.getErrors().empty())
