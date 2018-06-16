@@ -1,0 +1,12 @@
+{ Start }, NonTremDefList, NonTermDef, NonTermDefListTail, Rules, RulesDef, Alt, OtherAlts, TokList, Tok
+[ Start : NonTermDefList Rules ]
+[ NonTermDefList : NonTermDef NonTermDefListTail ]
+[ NonTermDefListTail : "," NonTermDef NonTremDefListTail : @ ]
+[ NonTermDef : TAG_NONTERM : "{" TAG_NONTERM "}" ]
+[ Rules : "[" RulesDef "]" Rules : @ ]
+[ RulesDef : TAG_NONTERM ":" Alt OtherAlts ]
+[ OtherAlts : ":" Alt OtherAlts : @ ]
+[ Alt : Tok TokList ]
+[ TokList : Tok TokList : @ ]
+[ Tok : STERM : TAG_NONTERM : "@" ]
+

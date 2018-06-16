@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Lab7_1.dir/main.cpp.o CMakeFiles/Lab7_1.dir/lexer/TokenStream.cpp.o CMakeFiles/Lab7_1.dir/parser/Parser.cpp.o  -o Lab7_1 

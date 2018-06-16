@@ -1,0 +1,17 @@
+S  -> A B
+A  -> A' C
+C  -> , A' C
+C  -> e
+A' -> { nonterm }
+A' -> nonterm
+B  -> [ D ] B
+B  -> e
+D  -> nonterm : F E
+E  -> : F E
+E  -> e
+F  -> G F'
+F' -> G F'
+F' -> e
+G  -> term
+G  -> nonterm
+G  -> @

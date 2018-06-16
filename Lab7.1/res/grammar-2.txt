@@ -1,0 +1,9 @@
+{S}, A, C, B, D, E, F, F', G
+[ S : A B ]
+[ C : "," nonterm C : @ ]
+[ B : "[" D "]" B : @ ]
+[ D : nonterm ":" F E ]
+[ E : ":" F E : @ ]
+[ F : G F' ]
+[ F': G F' : @ ]
+[ G : term : nonterm : "@" ]

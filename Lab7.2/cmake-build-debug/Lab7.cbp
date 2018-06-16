@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Lab7"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Lab7">
+				<Option output="/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Lab7" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab7"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Lab7/fast">
+				<Option output="/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Lab7" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab7/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alex/dev/src/iu9/compilers/Lab7.2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/commons/fragment.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/commons/position.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/commons/token.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/lexer/Lexer.cpp">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/lexer/Lexer.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/main.cpp">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/parser-generator/ParserGenerator.cpp">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/parser-generator/ParserGenerator.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/parser/Parser.cpp">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/parser/Parser.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/parser/parser_types/rule.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/parser/parser_types/symbol.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/parser/parser_types/symbol_type.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/parser/st_utils.h">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/tree/tree.hpp">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/tree/tree_util.hpp">
+			<Option target="Lab7"/>
+		</Unit>
+		<Unit filename="/home/alex/dev/src/iu9/compilers/Lab7.2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
