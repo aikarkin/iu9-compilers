@@ -6,8 +6,10 @@
 #define LAB7_1_RULEITEM_H
 
 #include "symbol_type.h"
+#include "../../lexer/Lexer.h"
 
 namespace gr_parser {
+
     struct symbol {
         symbol_t type;
         int tag;

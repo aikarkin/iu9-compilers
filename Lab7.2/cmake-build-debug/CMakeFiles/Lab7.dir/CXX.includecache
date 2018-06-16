@@ -115,6 +115,8 @@ symbol.h
 /home/alex/dev/src/iu9/compilers/Lab7.2/parser/parser_types/symbol.h
 symbol_type.h
 /home/alex/dev/src/iu9/compilers/Lab7.2/parser/parser_types/symbol_type.h
+../../lexer/Lexer.h
+/home/alex/dev/src/iu9/compilers/Lab7.2/lexer/Lexer.h
 
 /home/alex/dev/src/iu9/compilers/Lab7.2/parser/parser_types/symbol_type.h
 

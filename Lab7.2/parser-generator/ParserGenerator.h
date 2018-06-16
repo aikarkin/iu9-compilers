@@ -29,6 +29,7 @@ private:
     void def_rules(gr_parser::st_iter node);
 
     void build_first();
+    void build_follow();
 
     void nonterm_lookup(gr_parser::st_iter node, int tag, std::function<void(gr_parser::st_iter)> whenFound);
     void add_error(std::string str);
@@ -39,6 +40,7 @@ private:
     int axiom_tag;
 
     std::unordered_map<int, std::unordered_set<int> > first_sets;
+    std::unordered_map<int, std::unordered_set<int> > follow_sets;
 
     std::unique_ptr<gr_parser::Parser> parser_ptr;
     std::unique_ptr<gr_lexer::Lexer> lexer_ptr;
